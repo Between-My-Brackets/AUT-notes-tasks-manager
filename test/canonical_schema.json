@@ -24,21 +24,13 @@
         "type": "object",
         "properties": {
           "_id": {
-            "type": "string",
+            "type": "number",
             "description": "User ID"
           },
           "email": {
             "type": "string",
             "format": "email",
             "description": "User email"
-          },
-          "role": {
-            "type": "string",
-            "enum": [
-              "USER",
-              "ADMIN"
-            ],
-            "description": "User role"
           },
           "isActive": {
             "type": "boolean",
@@ -51,9 +43,8 @@
           }
         },
         "example": {
-          "_id": "60d0fe4f5e3e2a001c8a1b00",
+          "_id": 1,
           "email": "user@example.com",
-          "role": "USER",
           "isActive": true,
           "createdAt": "2021-06-21T10:00:00.000Z"
         }
@@ -62,7 +53,7 @@
         "type": "object",
         "properties": {
           "_id": {
-            "type": "string",
+            "type": "number",
             "description": "Notebook ID"
           },
           "name": {
@@ -70,7 +61,7 @@
             "description": "Name of the notebook"
           },
           "owner": {
-            "type": "string",
+            "type": "number",
             "description": "ID of the user who owns the notebook"
           },
           "isArchived": {
@@ -84,66 +75,43 @@
           }
         },
         "example": {
-          "_id": "60d0fe4f5e3e2a001c8a1b01",
+          "_id": 101,
           "name": "My First Notebook",
-          "owner": "60d0fe4f5e3e2a001c8a1b00",
+          "owner": 1,
           "isArchived": false,
           "createdAt": "2021-06-21T10:05:00.000Z"
         }
       },
-      "ErrorResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": false
-          },
-          "error": {
-            "type": "string"
-          }
-        }
-      },
-      "Note": {
+      "Blog": {
         "type": "object",
         "properties": {
           "_id": {
-            "type": "string",
-            "description": "Note ID"
+            "type": "number",
+            "description": "Blog ID"
           },
           "title": {
             "type": "string",
-            "description": "Title of the note"
+            "description": "Title of the blog"
           },
           "content": {
             "type": "string",
-            "description": "Content of the note"
+            "description": "Content of the blog"
           },
           "notebookId": {
-            "type": "string",
-            "description": "ID of the notebook this note belongs to"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Tags associated with the note"
+            "type": "number",
+            "description": "ID of the notebook this blog belongs to"
           },
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "Note creation timestamp"
+            "description": "Blog creation timestamp"
           }
         },
         "example": {
-          "_id": "60d0fe4f5e3e2a001c8a1b02",
+          "_id": 201,
           "title": "Meeting Agenda",
           "content": "Discuss project milestones and deadlines.",
-          "notebookId": "60d0fe4f5e3e2a001c8a1b01",
-          "tags": [
-            "meeting",
-            "project"
-          ],
+          "notebookId": 101,
           "createdAt": "2021-06-21T10:10:00.000Z"
         }
       },
@@ -151,7 +119,7 @@
         "type": "object",
         "properties": {
           "_id": {
-            "type": "string",
+            "type": "number",
             "description": "Task ID"
           },
           "description": {
@@ -167,7 +135,7 @@
             "description": "Current status of the task"
           },
           "notebookId": {
-            "type": "string",
+            "type": "number",
             "description": "ID of the notebook this task belongs to"
           },
           "createdAt": {
@@ -177,51 +145,23 @@
           }
         },
         "example": {
-          "_id": "60d0fe4f5e3e2a001c8a1b03",
+          "_id": 301,
           "description": "Finish project report",
           "status": "OPEN",
-          "notebookId": "60d0fe4f5e3e2a001c8a1b01",
+          "notebookId": 101,
           "createdAt": "2021-06-21T10:15:00.000Z"
         }
       },
-      "AuditLog": {
+      "ErrorResponse": {
         "type": "object",
         "properties": {
-          "_id": {
-            "type": "string",
-            "description": "Audit Log ID"
+          "success": {
+            "type": "boolean",
+            "example": false
           },
-          "entity": {
-            "type": "string",
-            "description": "Entity type that the log refers to"
-          },
-          "action": {
-            "type": "string",
-            "description": "Action performed (e.g., CREATE, UPDATE, DELETE)"
-          },
-          "userId": {
-            "type": "string",
-            "description": "ID of the user who performed the action"
-          },
-          "details": {
-            "type": "object",
-            "description": "Details of the change or action"
-          },
-          "timestamp": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Timestamp of the audit log entry"
+          "error": {
+            "type": "string"
           }
-        },
-        "example": {
-          "_id": "60d0fe4f5e3e2a001c8a1b04",
-          "entity": "User",
-          "action": "LOGIN",
-          "userId": "60d0fe4f5e3e2a001c8a1b00",
-          "details": {
-            "ip": "192.168.1.1"
-          },
-          "timestamp": "2021-06-21T10:20:00.000Z"
         }
       }
     }
@@ -232,213 +172,6 @@
     }
   ],
   "paths": {
-    "/api/audit-logs": {
-      "get": {
-        "summary": "Get all audit logs",
-        "tags": [
-          "Audit Logs"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of audit logs",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "count": {
-                      "type": "integer"
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/AuditLog"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          }
-        }
-      },
-      "post": {
-        "summary": "Create an audit log",
-        "tags": [
-          "Audit Logs"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "entity",
-                  "action",
-                  "userId"
-                ],
-                "properties": {
-                  "entity": {
-                    "type": "string"
-                  },
-                  "action": {
-                    "type": "string"
-                  },
-                  "userId": {
-                    "type": "string"
-                  },
-                  "details": {
-                    "type": "object"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Audit log created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "$ref": "#/components/schemas/AuditLog"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Clear all audit logs",
-        "tags": [
-          "Audit Logs"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "All audit logs cleared successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          }
-        }
-      }
-    },
-    "/api/audit-logs/entity/{entity}": {
-      "get": {
-        "summary": "Get audit logs filtered by entity type",
-        "tags": [
-          "Audit Logs"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "entity",
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "description": "Name of the entity to filter audit logs by (e.g., User, Notebook)"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of audit logs for the specified entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "count": {
-                      "type": "integer"
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/AuditLog"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          }
-        }
-      }
-    },
     "/api/auth/register": {
       "post": {
         "summary": "Register a new user",
@@ -461,13 +194,6 @@
                   },
                   "password": {
                     "type": "string"
-                  },
-                  "role": {
-                    "type": "string",
-                    "enum": [
-                      "USER",
-                      "ADMIN"
-                    ]
                   }
                 }
               }
@@ -543,23 +269,18 @@
         }
       }
     },
-    "/api/notebooks/{notebookId}/notes": {
+    "/api/notebooks/{notebookId}/blogs": {
       "get": {
-        "summary": "Get all notes for a specific notebook",
+        "summary": "Get all blogs for a specific notebook",
         "tags": [
-          "Notes"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
+          "Blogs"
         ],
         "parameters": [
           {
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -567,7 +288,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A list of notes",
+            "description": "A list of blogs",
             "content": {
               "application/json": {
                 "schema": {
@@ -582,7 +303,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/Note"
+                        "$ref": "#/components/schemas/Blog"
                       }
                     }
                   }
@@ -590,18 +311,15 @@
               }
             }
           },
-          "401": {
-            "description": "Not authorized"
-          },
           "404": {
             "description": "Notebook not found"
           }
         }
       },
       "post": {
-        "summary": "Create a new note in a specific notebook",
+        "summary": "Create a new blog in a specific notebook",
         "tags": [
-          "Notes"
+          "Blogs"
         ],
         "security": [
           {
@@ -613,7 +331,7 @@
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -635,12 +353,6 @@
                   },
                   "content": {
                     "type": "string"
-                  },
-                  "tags": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
                   }
                 }
               }
@@ -649,7 +361,7 @@
         },
         "responses": {
           "201": {
-            "description": "Note created",
+            "description": "Blog created",
             "content": {
               "application/json": {
                 "schema": {
@@ -659,7 +371,7 @@
                       "type": "boolean"
                     },
                     "data": {
-                      "$ref": "#/components/schemas/Note"
+                      "$ref": "#/components/schemas/Blog"
                     }
                   }
                 }
@@ -670,7 +382,7 @@
             "description": "Bad request"
           },
           "401": {
-            "description": "Not authorized"
+            "description": "Not authorized (if ownership check fails)"
           },
           "404": {
             "description": "Notebook not found"
@@ -678,23 +390,18 @@
         }
       }
     },
-    "/api/notebooks/{notebookId}/notes/{id}": {
+    "/api/notebooks/{notebookId}/blogs/{id}": {
       "get": {
-        "summary": "Get single note by ID for a specific notebook",
+        "summary": "Get single blog by ID for a specific notebook",
         "tags": [
-          "Notes"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
+          "Blogs"
         ],
         "parameters": [
           {
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -703,15 +410,15 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
-            "description": "ID of the note to retrieve"
+            "description": "ID of the blog to retrieve"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response with the note data",
+            "description": "Successful response with the blog data",
             "content": {
               "application/json": {
                 "schema": {
@@ -721,25 +428,22 @@
                       "type": "boolean"
                     },
                     "data": {
-                      "$ref": "#/components/schemas/Note"
+                      "$ref": "#/components/schemas/Blog"
                     }
                   }
                 }
               }
             }
           },
-          "401": {
-            "description": "Not authorized"
-          },
           "404": {
-            "description": "Notebook or Note not found"
+            "description": "Notebook or Blog not found"
           }
         }
       },
       "put": {
-        "summary": "Update a note by ID for a specific notebook",
+        "summary": "Update a blog by ID for a specific notebook",
         "tags": [
-          "Notes"
+          "Blogs"
         ],
         "security": [
           {
@@ -751,7 +455,7 @@
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -760,10 +464,10 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
-            "description": "ID of the note to update"
+            "description": "ID of the blog to update"
           }
         ],
         "requestBody": {
@@ -778,12 +482,6 @@
                   },
                   "content": {
                     "type": "string"
-                  },
-                  "tags": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
                   }
                 }
               }
@@ -792,7 +490,7 @@
         },
         "responses": {
           "200": {
-            "description": "Note updated successfully",
+            "description": "Blog updated successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -802,7 +500,7 @@
                       "type": "boolean"
                     },
                     "data": {
-                      "$ref": "#/components/schemas/Note"
+                      "$ref": "#/components/schemas/Blog"
                     }
                   }
                 }
@@ -813,17 +511,17 @@
             "description": "Bad request"
           },
           "401": {
-            "description": "Not authorized"
+            "description": "Not authorized (if ownership check fails)"
           },
           "404": {
-            "description": "Notebook or Note not found"
+            "description": "Notebook or Blog not found"
           }
         }
       },
       "delete": {
-        "summary": "Delete a note by ID for a specific notebook",
+        "summary": "Delete a blog by ID for a specific notebook",
         "tags": [
-          "Notes"
+          "Blogs"
         ],
         "security": [
           {
@@ -835,7 +533,7 @@
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -844,15 +542,15 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
-            "description": "ID of the note to delete"
+            "description": "ID of the blog to delete"
           }
         ],
         "responses": {
           "200": {
-            "description": "Note deleted successfully",
+            "description": "Blog deleted successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -870,10 +568,10 @@
             }
           },
           "401": {
-            "description": "Not authorized"
+            "description": "Not authorized (if ownership check fails)"
           },
           "404": {
-            "description": "Notebook or Note not found"
+            "description": "Notebook or Blog not found"
           }
         }
       }
@@ -994,7 +692,7 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook to retrieve"
@@ -1042,7 +740,7 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook to update"
@@ -1111,7 +809,7 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook to delete"
@@ -1164,7 +862,7 @@
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -1218,7 +916,7 @@
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -1297,7 +995,7 @@
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -1306,7 +1004,7 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the task to retrieve"
@@ -1354,7 +1052,7 @@
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -1363,7 +1061,7 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the task to update"
@@ -1436,7 +1134,7 @@
             "in": "path",
             "name": "notebookId",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the notebook"
@@ -1445,7 +1143,7 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "required": true,
             "description": "ID of the task to delete"
@@ -1481,315 +1179,12 @@
           }
         }
       }
-    },
-    "/api/users": {
-      "get": {
-        "summary": "Get all users",
-        "tags": [
-          "Users"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of users",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "count": {
-                      "type": "integer"
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/User"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new user",
-        "tags": [
-          "Users"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "email",
-                  "password",
-                  "role"
-                ],
-                "properties": {
-                  "email": {
-                    "type": "string"
-                  },
-                  "password": {
-                    "type": "string",
-                    "minlength": 6
-                  },
-                  "role": {
-                    "type": "string",
-                    "enum": [
-                      "USER",
-                      "ADMIN"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "User created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          }
-        }
-      }
-    },
-    "/api/users/{id}": {
-      "get": {
-        "summary": "Get single user by ID",
-        "tags": [
-          "Users"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "description": "ID of the user to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response with the user data",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          },
-          "404": {
-            "description": "User not found"
-          }
-        }
-      },
-      "put": {
-        "summary": "Update a user by ID",
-        "tags": [
-          "Users"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "description": "ID of the user to update"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "email": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string",
-                    "enum": [
-                      "USER",
-                      "ADMIN"
-                    ]
-                  },
-                  "isActive": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "User updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          },
-          "404": {
-            "description": "User not found"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete a user by ID",
-        "tags": [
-          "Users"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "description": "ID of the user to delete"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "User deleted successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "403": {
-            "description": "Not permitted (Admins only)"
-          },
-          "404": {
-            "description": "User not found"
-          }
-        }
-      }
     }
   },
   "tags": [
     {
-      "name": "Audit Logs",
-      "description": "Audit log management (Admin only)"
-    },
-    {
-      "name": "Notes",
-      "description": "Note management"
+      "name": "Blogs",
+      "description": "Blog management"
     },
     {
       "name": "Notebooks",
@@ -1798,10 +1193,6 @@
     {
       "name": "Tasks",
       "description": "Task management"
-    },
-    {
-      "name": "Users",
-      "description": "User management (Admin only)"
     }
   ]
 }

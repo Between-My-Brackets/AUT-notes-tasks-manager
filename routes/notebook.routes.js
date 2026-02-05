@@ -12,10 +12,10 @@ const router = express.Router();
 const { protect } = require('../middleware/auth');
 
 // Re-route into other resource routers
-const noteRouter = require('./note.routes');
+const blogRouter = require('./blog.routes');
 const taskRouter = require('./task.routes');
 
-router.use('/:notebookId/notes', noteRouter);
+router.use('/:notebookId/blogs', blogRouter);
 router.use('/:notebookId/tasks', taskRouter);
 
 router.use(protect);
@@ -105,7 +105,7 @@ router
  *       - in: path
  *         name: id
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the notebook to retrieve
  *     responses:
@@ -133,7 +133,7 @@ router
  *       - in: path
  *         name: id
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the notebook to update
  *     requestBody:
@@ -174,7 +174,7 @@ router
  *       - in: path
  *         name: id
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the notebook to delete
  *     responses:

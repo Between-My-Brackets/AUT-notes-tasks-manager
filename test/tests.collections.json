@@ -1,827 +1,15 @@
 {
   "item": [
     {
-      "id": "e61e3b0a-01f1-4d1f-9042-ba0e48844ed8",
+      "id": "1ab3777c-3a95-41ff-8e48-b79f2237f04d",
       "name": "api",
       "item": [
         {
-          "id": "eadbf95d-7890-471c-919e-fcacedf243b4",
-          "name": "audit-logs",
-          "item": [
-            {
-              "id": "54e69259-78cb-438d-a035-6f215e478f96",
-              "name": "Get all audit logs",
-              "request": {
-                "name": "Get all audit logs",
-                "description": {},
-                "url": {
-                  "path": [
-                    "api",
-                    "audit-logs"
-                  ],
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "query": [],
-                  "variable": [],
-                  "protocol": "http",
-                  "port": "3000"
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "auth": {
-                  "type": "bearer",
-                  "bearer": [
-                    {
-                      "key": "token",
-                      "value": "{{bearerToken}}"
-                    }
-                  ]
-                }
-              },
-              "response": [
-                {
-                  "id": "de37ce1a-d970-4ef1-9ffa-ea7db60041c8",
-                  "name": "A list of audit logs",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "OK",
-                  "code": 200,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "application/json"
-                    }
-                  ],
-                  "body": "{\n  \"success\": true,\n  \"count\": 5652,\n  \"data\": [\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b04\",\n      \"entity\": \"User\",\n      \"action\": \"LOGIN\",\n      \"userId\": \"60d0fe4f5e3e2a001c8a1b00\",\n      \"details\": {\n        \"ip\": \"192.168.1.1\"\n      },\n      \"timestamp\": \"2021-06-21T10:20:00.000Z\"\n    },\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b04\",\n      \"entity\": \"User\",\n      \"action\": \"LOGIN\",\n      \"userId\": \"60d0fe4f5e3e2a001c8a1b00\",\n      \"details\": {\n        \"ip\": \"192.168.1.1\"\n      },\n      \"timestamp\": \"2021-06-21T10:20:00.000Z\"\n    }\n  ]\n}",
-                  "cookie": [],
-                  "_postman_previewlanguage": "json"
-                },
-                {
-                  "id": "d9c644ee-0344-40b3-bd0c-94887c1bd3d2",
-                  "name": "Not authorized",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "Unauthorized",
-                  "code": 401,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                },
-                {
-                  "id": "e75f63d4-009d-483d-967a-157dede141b9",
-                  "name": "Not permitted (Admins only)",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "Forbidden",
-                  "code": 403,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                }
-              ],
-              "event": [],
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              }
-            },
-            {
-              "id": "66e1a5b1-3e55-4a9b-bef3-0577d5aa2e22",
-              "name": "Create an audit log",
-              "request": {
-                "name": "Create an audit log",
-                "description": {},
-                "url": {
-                  "path": [
-                    "api",
-                    "audit-logs"
-                  ],
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "query": [],
-                  "variable": [],
-                  "protocol": "http",
-                  "port": "3000"
-                },
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "auth": {
-                  "type": "bearer",
-                  "bearer": [
-                    {
-                      "key": "token",
-                      "value": "{{bearerToken}}"
-                    }
-                  ]
-                },
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"entity\": \"<string>\",\n  \"action\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"details\": \"<object>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "response": [
-                {
-                  "id": "42705231-e882-46e3-ab89-a0a3fc92902b",
-                  "name": "Audit log created",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "POST",
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"entity\": \"<string>\",\n  \"action\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"details\": \"<object>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "status": "Created",
-                  "code": 201,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "application/json"
-                    }
-                  ],
-                  "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b04\",\n    \"entity\": \"User\",\n    \"action\": \"LOGIN\",\n    \"userId\": \"60d0fe4f5e3e2a001c8a1b00\",\n    \"details\": {\n      \"ip\": \"192.168.1.1\"\n    },\n    \"timestamp\": \"2021-06-21T10:20:00.000Z\"\n  }\n}",
-                  "cookie": [],
-                  "_postman_previewlanguage": "json"
-                },
-                {
-                  "id": "5dc61f3b-c0f6-499a-9b11-53b71b6396e0",
-                  "name": "Bad request",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "POST",
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"entity\": \"<string>\",\n  \"action\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"details\": \"<object>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "status": "Bad Request",
-                  "code": 400,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                },
-                {
-                  "id": "7cb2e544-e200-4466-8adb-8ade88c00102",
-                  "name": "Not authorized",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "POST",
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"entity\": \"<string>\",\n  \"action\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"details\": \"<object>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "status": "Unauthorized",
-                  "code": 401,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                },
-                {
-                  "id": "2f5c696d-6727-429e-b2f2-cae74f7df8e8",
-                  "name": "Not permitted (Admins only)",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "POST",
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"entity\": \"<string>\",\n  \"action\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"details\": \"<object>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "status": "Forbidden",
-                  "code": 403,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                }
-              ],
-              "event": [],
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              }
-            },
-            {
-              "id": "a425b979-753e-49b0-b44b-8ace04790fe7",
-              "name": "Clear all audit logs",
-              "request": {
-                "name": "Clear all audit logs",
-                "description": {},
-                "url": {
-                  "path": [
-                    "api",
-                    "audit-logs"
-                  ],
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "query": [],
-                  "variable": [],
-                  "protocol": "http",
-                  "port": "3000"
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "auth": {
-                  "type": "bearer",
-                  "bearer": [
-                    {
-                      "key": "token",
-                      "value": "{{bearerToken}}"
-                    }
-                  ]
-                }
-              },
-              "response": [
-                {
-                  "id": "006adaaf-de9c-49f4-a3b0-13610af0fcd7",
-                  "name": "All audit logs cleared successfully",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "DELETE",
-                    "body": {}
-                  },
-                  "status": "OK",
-                  "code": 200,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "application/json"
-                    }
-                  ],
-                  "body": "{\n  \"success\": false,\n  \"data\": {}\n}",
-                  "cookie": [],
-                  "_postman_previewlanguage": "json"
-                },
-                {
-                  "id": "409c1133-a315-4b3b-a3f5-463627868dc6",
-                  "name": "Not authorized",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "DELETE",
-                    "body": {}
-                  },
-                  "status": "Unauthorized",
-                  "code": 401,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                },
-                {
-                  "id": "2559b5ff-586d-40a2-8078-92f3820357fd",
-                  "name": "Not permitted (Admins only)",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "DELETE",
-                    "body": {}
-                  },
-                  "status": "Forbidden",
-                  "code": 403,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                }
-              ],
-              "event": [],
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              }
-            },
-            {
-              "id": "71631757-4b1d-4ca4-a397-c104971e4e5a",
-              "name": "Get audit logs filtered by entity type",
-              "request": {
-                "name": "Get audit logs filtered by entity type",
-                "description": {},
-                "url": {
-                  "path": [
-                    "api",
-                    "audit-logs",
-                    "entity",
-                    ":entity"
-                  ],
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "entity",
-                      "description": "(Required) Name of the entity to filter audit logs by (e.g., User, Notebook)"
-                    }
-                  ],
-                  "protocol": "http",
-                  "port": "3000"
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "auth": {
-                  "type": "bearer",
-                  "bearer": [
-                    {
-                      "key": "token",
-                      "value": "{{bearerToken}}"
-                    }
-                  ]
-                }
-              },
-              "response": [
-                {
-                  "id": "9d71965c-243a-4337-b4f4-f2ac75b4e1ae",
-                  "name": "A list of audit logs for the specified entity",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs",
-                        "entity",
-                        ":entity"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": [
-                        {
-                          "disabled": false,
-                          "type": "any",
-                          "value": "<string>",
-                          "key": "entity",
-                          "description": "(Required) Name of the entity to filter audit logs by (e.g., User, Notebook)"
-                        }
-                      ]
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "OK",
-                  "code": 200,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "application/json"
-                    }
-                  ],
-                  "body": "{\n  \"success\": true,\n  \"count\": 5652,\n  \"data\": [\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b04\",\n      \"entity\": \"User\",\n      \"action\": \"LOGIN\",\n      \"userId\": \"60d0fe4f5e3e2a001c8a1b00\",\n      \"details\": {\n        \"ip\": \"192.168.1.1\"\n      },\n      \"timestamp\": \"2021-06-21T10:20:00.000Z\"\n    },\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b04\",\n      \"entity\": \"User\",\n      \"action\": \"LOGIN\",\n      \"userId\": \"60d0fe4f5e3e2a001c8a1b00\",\n      \"details\": {\n        \"ip\": \"192.168.1.1\"\n      },\n      \"timestamp\": \"2021-06-21T10:20:00.000Z\"\n    }\n  ]\n}",
-                  "cookie": [],
-                  "_postman_previewlanguage": "json"
-                },
-                {
-                  "id": "54274753-23f2-4b71-b0d3-eba5d33ec251",
-                  "name": "Not authorized",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs",
-                        "entity",
-                        ":entity"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": [
-                        {
-                          "disabled": false,
-                          "type": "any",
-                          "value": "<string>",
-                          "key": "entity",
-                          "description": "(Required) Name of the entity to filter audit logs by (e.g., User, Notebook)"
-                        }
-                      ]
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "Unauthorized",
-                  "code": 401,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                },
-                {
-                  "id": "185667f0-190d-456e-9eeb-540fb0656e4e",
-                  "name": "Not permitted (Admins only)",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "audit-logs",
-                        "entity",
-                        ":entity"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": [
-                        {
-                          "disabled": false,
-                          "type": "any",
-                          "value": "<string>",
-                          "key": "entity",
-                          "description": "(Required) Name of the entity to filter audit logs by (e.g., User, Notebook)"
-                        }
-                      ]
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "Forbidden",
-                  "code": 403,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                }
-              ],
-              "event": [],
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              }
-            }
-          ],
-          "event": []
-        },
-        {
-          "id": "d7e315ae-fcf2-48ad-8c70-08d73784ee2b",
+          "id": "b81157bf-0f51-4be8-accd-41d3887f52b6",
           "name": "auth",
           "item": [
             {
-              "id": "6d2d6c4a-cdeb-49fa-9e68-2afe6c5cdac7",
+              "id": "bd2ff04b-1f3b-472e-a849-11ab38fb3ffe",
               "name": "Register a new user",
               "request": {
                 "name": "Register a new user",
@@ -853,7 +41,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -863,7 +51,7 @@
               },
               "response": [
                 {
-                  "id": "5ad34e87-fb82-4f1d-9bfb-065a81e0fea1",
+                  "id": "a5143be7-1a73-4385-b1a0-c926dcc713cc",
                   "name": "User registered successfully",
                   "originalRequest": {
                     "url": {
@@ -891,7 +79,7 @@
                     "method": "POST",
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -912,7 +100,7 @@
                   "_postman_previewlanguage": "text"
                 },
                 {
-                  "id": "034da579-844e-44d4-8b67-d8b4196045af",
+                  "id": "7663200b-8609-4b21-8e64-8aa908566160",
                   "name": "Bad request",
                   "originalRequest": {
                     "url": {
@@ -940,7 +128,7 @@
                     "method": "POST",
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -967,7 +155,7 @@
               }
             },
             {
-              "id": "3146d197-01e9-4b46-91ed-c9184bc71300",
+              "id": "b42ff208-a9ab-404e-85f9-ebf1e1bf999c",
               "name": "Login user",
               "request": {
                 "name": "Login user",
@@ -1009,7 +197,7 @@
               },
               "response": [
                 {
-                  "id": "2157143b-b2e3-4418-9a16-678d7fc71dac",
+                  "id": "98f05071-bef4-4d8a-8f9a-09f1566fb28c",
                   "name": "Login successful",
                   "originalRequest": {
                     "url": {
@@ -1058,7 +246,7 @@
                   "_postman_previewlanguage": "text"
                 },
                 {
-                  "id": "36effffd-af2a-4bc0-8d77-6127c26e269a",
+                  "id": "c5b57532-50df-4a83-a8e4-b5c9193a86fc",
                   "name": "Invalid credentials",
                   "originalRequest": {
                     "url": {
@@ -1113,7 +301,7 @@
               }
             },
             {
-              "id": "bffa9462-0622-4a40-b5f9-4f7cc5f3d325",
+              "id": "3000fe34-d9e9-4b88-9e4b-f87c1ccc54ed",
               "name": "Get current logged in user",
               "request": {
                 "name": "Get current logged in user",
@@ -1148,7 +336,7 @@
               },
               "response": [
                 {
-                  "id": "6c742262-4fe6-42ad-ac90-a48368310407",
+                  "id": "5033a2b0-450f-44f4-bae2-c8a59def5fb2",
                   "name": "User details",
                   "originalRequest": {
                     "url": {
@@ -1189,7 +377,7 @@
                   "_postman_previewlanguage": "text"
                 },
                 {
-                  "id": "76003c2a-d502-4ed4-a933-b3093c9308eb",
+                  "id": "9e42489e-c105-4dc8-9282-de2f14ab19d8",
                   "name": "Not authorized",
                   "originalRequest": {
                     "url": {
@@ -1239,11 +427,11 @@
           "event": []
         },
         {
-          "id": "a898e0c2-6a3f-40be-b8aa-605597d6a6ad",
+          "id": "fc6c8549-8480-4d9e-bd59-0b0d1eb571b3",
           "name": "notebooks",
           "item": [
             {
-              "id": "4926e7e5-3059-4392-97c2-6c1c4f90ec5a",
+              "id": "bbeb79ad-bbb2-4c11-a2ca-3a10b3f8c020",
               "name": "Get all notebooks",
               "request": {
                 "name": "Get all notebooks",
@@ -1283,7 +471,7 @@
               },
               "response": [
                 {
-                  "id": "a8f11287-d3af-4c84-9263-a63153f01352",
+                  "id": "13df74a6-75d2-44d2-a49f-0a9beb490ace",
                   "name": "A list of notebooks",
                   "originalRequest": {
                     "url": {
@@ -1322,12 +510,12 @@
                       "value": "application/json"
                     }
                   ],
-                  "body": "{\n  \"success\": true,\n  \"count\": 7889,\n  \"data\": [\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b01\",\n      \"name\": \"My First Notebook\",\n      \"owner\": \"60d0fe4f5e3e2a001c8a1b00\",\n      \"isArchived\": false,\n      \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n    },\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b01\",\n      \"name\": \"My First Notebook\",\n      \"owner\": \"60d0fe4f5e3e2a001c8a1b00\",\n      \"isArchived\": false,\n      \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n    }\n  ]\n}",
+                  "body": "{\n  \"success\": true,\n  \"count\": 2596,\n  \"data\": [\n    {\n      \"_id\": 101,\n      \"name\": \"My First Notebook\",\n      \"owner\": 1,\n      \"isArchived\": false,\n      \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n    },\n    {\n      \"_id\": 101,\n      \"name\": \"My First Notebook\",\n      \"owner\": 1,\n      \"isArchived\": false,\n      \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n    }\n  ]\n}",
                   "cookie": [],
                   "_postman_previewlanguage": "json"
                 },
                 {
-                  "id": "f4ed1343-d042-46a1-8b7c-03077a0f9a72",
+                  "id": "7e674c5f-3ab1-493b-a9c6-64394962f10d",
                   "name": "Not authorized",
                   "originalRequest": {
                     "url": {
@@ -1373,7 +561,7 @@
               }
             },
             {
-              "id": "e1a41522-2aec-4bd6-a70c-11f8e352a31d",
+              "id": "048070ac-71b3-4e15-88e7-c3b7d98c44ed",
               "name": "Create new notebook",
               "request": {
                 "name": "Create new notebook",
@@ -1426,7 +614,7 @@
               },
               "response": [
                 {
-                  "id": "1414b567-5c6e-418c-9524-511f3f5b337d",
+                  "id": "6904d224-07a7-42e9-ad8d-8504f9508cb6",
                   "name": "Notebook created",
                   "originalRequest": {
                     "url": {
@@ -1473,12 +661,12 @@
                       "value": "application/json"
                     }
                   ],
-                  "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"name\": \"My First Notebook\",\n    \"owner\": \"60d0fe4f5e3e2a001c8a1b00\",\n    \"isArchived\": false,\n    \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n  }\n}",
+                  "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": 101,\n    \"name\": \"My First Notebook\",\n    \"owner\": 1,\n    \"isArchived\": false,\n    \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n  }\n}",
                   "cookie": [],
                   "_postman_previewlanguage": "json"
                 },
                 {
-                  "id": "890e2d7b-5053-4bb7-a467-c1f54bb1b7b9",
+                  "id": "54131d7c-052d-460d-8688-8154947737b2",
                   "name": "Bad request",
                   "originalRequest": {
                     "url": {
@@ -1526,7 +714,7 @@
                   "_postman_previewlanguage": "text"
                 },
                 {
-                  "id": "9da8e782-1ff0-43b9-a489-4d3d9d45bd53",
+                  "id": "2d40daf0-3c10-4546-9d47-f64a7ec2b0e1",
                   "name": "Not authorized",
                   "originalRequest": {
                     "url": {
@@ -1580,25 +768,25 @@
               }
             },
             {
-              "id": "302b91ae-3240-48cb-8696-9cca514382b9",
+              "id": "691f2800-5dcc-4b08-8415-6f6c9c17faf5",
               "name": "{notebookId}",
               "item": [
                 {
-                  "id": "93542b30-7f00-4b93-a7b9-709454b5400d",
-                  "name": "notes",
+                  "id": "532a88d4-bda6-4ec0-a78c-ec56e2396c6e",
+                  "name": "blogs",
                   "item": [
                     {
-                      "id": "81fe5c74-ca3a-42bb-9d84-1960959e2518",
-                      "name": "Get all notes for a specific notebook",
+                      "id": "71280835-ecd7-4313-be41-11f6e087e79a",
+                      "name": "Get all blogs for a specific notebook",
                       "request": {
-                        "name": "Get all notes for a specific notebook",
+                        "name": "Get all blogs for a specific notebook",
                         "description": {},
                         "url": {
                           "path": [
                             "api",
                             "notebooks",
                             ":notebookId",
-                            "notes"
+                            "blogs"
                           ],
                           "host": [
                             "127",
@@ -1611,7 +799,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "notebookId",
                               "description": "(Required) ID of the notebook"
                             }
@@ -1626,27 +814,19 @@
                           }
                         ],
                         "method": "GET",
-                        "auth": {
-                          "type": "bearer",
-                          "bearer": [
-                            {
-                              "key": "token",
-                              "value": "{{bearerToken}}"
-                            }
-                          ]
-                        }
+                        "auth": null
                       },
                       "response": [
                         {
-                          "id": "325b48a9-6903-401d-b27e-d9ef10fd60ef",
-                          "name": "A list of notes",
+                          "id": "57edb60b-e950-4892-9191-2e0f6119031d",
+                          "name": "A list of blogs",
                           "originalRequest": {
                             "url": {
                               "path": [
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes"
+                                "blogs"
                               ],
                               "host": [
                                 "{{baseUrl}}"
@@ -1656,7 +836,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -1687,62 +867,12 @@
                               "value": "application/json"
                             }
                           ],
-                          "body": "{\n  \"success\": false,\n  \"count\": 6588,\n  \"data\": [\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b02\",\n      \"title\": \"Meeting Agenda\",\n      \"content\": \"Discuss project milestones and deadlines.\",\n      \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n      \"tags\": [\n        \"meeting\",\n        \"project\"\n      ],\n      \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n    },\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b02\",\n      \"title\": \"Meeting Agenda\",\n      \"content\": \"Discuss project milestones and deadlines.\",\n      \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n      \"tags\": [\n        \"meeting\",\n        \"project\"\n      ],\n      \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n    }\n  ]\n}",
+                          "body": "{\n  \"success\": true,\n  \"count\": 2797,\n  \"data\": [\n    {\n      \"_id\": 201,\n      \"title\": \"Meeting Agenda\",\n      \"content\": \"Discuss project milestones and deadlines.\",\n      \"notebookId\": 101,\n      \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n    },\n    {\n      \"_id\": 201,\n      \"title\": \"Meeting Agenda\",\n      \"content\": \"Discuss project milestones and deadlines.\",\n      \"notebookId\": 101,\n      \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n    }\n  ]\n}",
                           "cookie": [],
                           "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "a318a942-16ba-4d9f-9063-4c616d48023c",
-                          "name": "Not authorized",
-                          "originalRequest": {
-                            "url": {
-                              "path": [
-                                "api",
-                                "notebooks",
-                                ":notebookId",
-                                "notes"
-                              ],
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "query": [],
-                              "variable": [
-                                {
-                                  "disabled": false,
-                                  "type": "any",
-                                  "value": "<string>",
-                                  "key": "notebookId",
-                                  "description": "(Required) ID of the notebook"
-                                }
-                              ]
-                            },
-                            "header": [
-                              {
-                                "description": {
-                                  "content": "Added as a part of security scheme: bearer",
-                                  "type": "text/plain"
-                                },
-                                "key": "Authorization",
-                                "value": "Bearer <token>"
-                              }
-                            ],
-                            "method": "GET",
-                            "body": {}
-                          },
-                          "status": "Unauthorized",
-                          "code": 401,
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "text/plain"
-                            }
-                          ],
-                          "body": "",
-                          "cookie": [],
-                          "_postman_previewlanguage": "text"
-                        },
-                        {
-                          "id": "6308c050-ce3e-45e9-accd-0fda46ffd2af",
+                          "id": "4b7ab343-0d36-4056-b640-fbe295bac053",
                           "name": "Notebook not found",
                           "originalRequest": {
                             "url": {
@@ -1750,7 +880,7 @@
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes"
+                                "blogs"
                               ],
                               "host": [
                                 "{{baseUrl}}"
@@ -1760,7 +890,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -1798,17 +928,17 @@
                       }
                     },
                     {
-                      "id": "9d92bdd9-6ddf-4e23-852d-5090bec47399",
-                      "name": "Create a new note in a specific notebook",
+                      "id": "28a25010-6d5c-4ca3-96c7-767fca05e2ec",
+                      "name": "Create a new blog in a specific notebook",
                       "request": {
-                        "name": "Create a new note in a specific notebook",
+                        "name": "Create a new blog in a specific notebook",
                         "description": {},
                         "url": {
                           "path": [
                             "api",
                             "notebooks",
                             ":notebookId",
-                            "notes"
+                            "blogs"
                           ],
                           "host": [
                             "127",
@@ -1821,7 +951,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "notebookId",
                               "description": "(Required) ID of the notebook"
                             }
@@ -1851,7 +981,7 @@
                         },
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                           "options": {
                             "raw": {
                               "language": "json"
@@ -1861,15 +991,15 @@
                       },
                       "response": [
                         {
-                          "id": "90982c4f-0c58-4fab-a381-77fbc8cd2d40",
-                          "name": "Note created",
+                          "id": "653773c1-24eb-4c5e-a496-76e6ffcb0466",
+                          "name": "Blog created",
                           "originalRequest": {
                             "url": {
                               "path": [
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes"
+                                "blogs"
                               ],
                               "host": [
                                 "{{baseUrl}}"
@@ -1879,7 +1009,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -1902,7 +1032,7 @@
                             "method": "POST",
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                               "options": {
                                 "raw": {
                                   "language": "json"
@@ -1918,12 +1048,12 @@
                               "value": "application/json"
                             }
                           ],
-                          "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b02\",\n    \"title\": \"Meeting Agenda\",\n    \"content\": \"Discuss project milestones and deadlines.\",\n    \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"tags\": [\n      \"meeting\",\n      \"project\"\n    ],\n    \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n  }\n}",
+                          "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": 201,\n    \"title\": \"Meeting Agenda\",\n    \"content\": \"Discuss project milestones and deadlines.\",\n    \"notebookId\": 101,\n    \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n  }\n}",
                           "cookie": [],
                           "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "84257168-3dc3-481c-831b-fd713d2172aa",
+                          "id": "4942e3c5-7536-4dc8-bbd1-494e1daeb110",
                           "name": "Bad request",
                           "originalRequest": {
                             "url": {
@@ -1931,7 +1061,7 @@
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes"
+                                "blogs"
                               ],
                               "host": [
                                 "{{baseUrl}}"
@@ -1941,7 +1071,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -1960,7 +1090,7 @@
                             "method": "POST",
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                               "options": {
                                 "raw": {
                                   "language": "json"
@@ -1981,15 +1111,15 @@
                           "_postman_previewlanguage": "text"
                         },
                         {
-                          "id": "47da96da-d5ad-42bd-a832-97fe0ec77b6f",
-                          "name": "Not authorized",
+                          "id": "dd365781-f979-4fdd-9a8a-994fb0296411",
+                          "name": "Not authorized (if ownership check fails)",
                           "originalRequest": {
                             "url": {
                               "path": [
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes"
+                                "blogs"
                               ],
                               "host": [
                                 "{{baseUrl}}"
@@ -1999,7 +1129,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -2018,7 +1148,7 @@
                             "method": "POST",
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                               "options": {
                                 "raw": {
                                   "language": "json"
@@ -2039,7 +1169,7 @@
                           "_postman_previewlanguage": "text"
                         },
                         {
-                          "id": "cdc8c366-2008-4224-b4ab-9f28d2ecc56b",
+                          "id": "5f3996c5-f495-4492-b40d-320409ca83f5",
                           "name": "Notebook not found",
                           "originalRequest": {
                             "url": {
@@ -2047,7 +1177,7 @@
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes"
+                                "blogs"
                               ],
                               "host": [
                                 "{{baseUrl}}"
@@ -2057,7 +1187,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -2076,7 +1206,7 @@
                             "method": "POST",
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                               "options": {
                                 "raw": {
                                   "language": "json"
@@ -2103,21 +1233,21 @@
                       }
                     },
                     {
-                      "id": "e25dda8b-76b1-446f-9dc5-6ead894b501a",
+                      "id": "2a60a3f6-10fb-48de-a210-10827c70ff6f",
                       "name": "{id}",
                       "item": [
                         {
-                          "id": "dfa7d63c-a966-4137-8bf8-9a2908044191",
-                          "name": "Get single note by ID for a specific notebook",
+                          "id": "879e31d4-3b49-4664-a47b-766631a1d310",
+                          "name": "Get single blog by ID for a specific notebook",
                           "request": {
-                            "name": "Get single note by ID for a specific notebook",
+                            "name": "Get single blog by ID for a specific notebook",
                             "description": {},
                             "url": {
                               "path": [
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes",
+                                "blogs",
                                 ":id"
                               ],
                               "host": [
@@ -2131,16 +1261,16 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 },
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "id",
-                                  "description": "(Required) ID of the note to retrieve"
+                                  "description": "(Required) ID of the blog to retrieve"
                                 }
                               ],
                               "protocol": "http",
@@ -2153,27 +1283,19 @@
                               }
                             ],
                             "method": "GET",
-                            "auth": {
-                              "type": "bearer",
-                              "bearer": [
-                                {
-                                  "key": "token",
-                                  "value": "{{bearerToken}}"
-                                }
-                              ]
-                            }
+                            "auth": null
                           },
                           "response": [
                             {
-                              "id": "3b34f461-e37a-45e9-b12e-46a87fd6d3a6",
-                              "name": "Successful response with the note data",
+                              "id": "5937210d-5182-442b-ba4d-3d0dd4a1152b",
+                              "name": "Successful response with the blog data",
                               "originalRequest": {
                                 "url": {
                                   "path": [
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2184,16 +1306,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to retrieve"
+                                      "description": "(Required) ID of the blog to retrieve"
                                     }
                                   ]
                                 },
@@ -2222,20 +1344,20 @@
                                   "value": "application/json"
                                 }
                               ],
-                              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b02\",\n    \"title\": \"Meeting Agenda\",\n    \"content\": \"Discuss project milestones and deadlines.\",\n    \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"tags\": [\n      \"meeting\",\n      \"project\"\n    ],\n    \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n  }\n}",
+                              "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": 201,\n    \"title\": \"Meeting Agenda\",\n    \"content\": \"Discuss project milestones and deadlines.\",\n    \"notebookId\": 101,\n    \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n  }\n}",
                               "cookie": [],
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "8f51c51d-aee7-4a6b-87e5-a70d3a0b6bfe",
-                              "name": "Not authorized",
+                              "id": "4e9f462f-aa29-4631-9443-ad92e8f31779",
+                              "name": "Notebook or Blog not found",
                               "originalRequest": {
                                 "url": {
                                   "path": [
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2246,74 +1368,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to retrieve"
-                                    }
-                                  ]
-                                },
-                                "header": [
-                                  {
-                                    "description": {
-                                      "content": "Added as a part of security scheme: bearer",
-                                      "type": "text/plain"
-                                    },
-                                    "key": "Authorization",
-                                    "value": "Bearer <token>"
-                                  }
-                                ],
-                                "method": "GET",
-                                "body": {}
-                              },
-                              "status": "Unauthorized",
-                              "code": 401,
-                              "header": [
-                                {
-                                  "key": "Content-Type",
-                                  "value": "text/plain"
-                                }
-                              ],
-                              "body": "",
-                              "cookie": [],
-                              "_postman_previewlanguage": "text"
-                            },
-                            {
-                              "id": "b0ffdbe7-8853-4705-9476-7c5f38f3d166",
-                              "name": "Notebook or Note not found",
-                              "originalRequest": {
-                                "url": {
-                                  "path": [
-                                    "api",
-                                    "notebooks",
-                                    ":notebookId",
-                                    "notes",
-                                    ":id"
-                                  ],
-                                  "host": [
-                                    "{{baseUrl}}"
-                                  ],
-                                  "query": [],
-                                  "variable": [
-                                    {
-                                      "disabled": false,
-                                      "type": "any",
-                                      "value": "<string>",
-                                      "key": "notebookId",
-                                      "description": "(Required) ID of the notebook"
-                                    },
-                                    {
-                                      "disabled": false,
-                                      "type": "any",
-                                      "value": "<string>",
-                                      "key": "id",
-                                      "description": "(Required) ID of the note to retrieve"
+                                      "description": "(Required) ID of the blog to retrieve"
                                     }
                                   ]
                                 },
@@ -2349,17 +1413,17 @@
                           }
                         },
                         {
-                          "id": "1dc721ac-fe31-49a8-b574-971d1488ae5a",
-                          "name": "Update a note by ID for a specific notebook",
+                          "id": "cbaa5516-8b5b-42a8-a9b7-7282fd085f54",
+                          "name": "Update a blog by ID for a specific notebook",
                           "request": {
-                            "name": "Update a note by ID for a specific notebook",
+                            "name": "Update a blog by ID for a specific notebook",
                             "description": {},
                             "url": {
                               "path": [
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes",
+                                "blogs",
                                 ":id"
                               ],
                               "host": [
@@ -2373,16 +1437,16 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 },
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "id",
-                                  "description": "(Required) ID of the note to update"
+                                  "description": "(Required) ID of the blog to update"
                                 }
                               ],
                               "protocol": "http",
@@ -2410,7 +1474,7 @@
                             },
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                               "options": {
                                 "raw": {
                                   "language": "json"
@@ -2420,15 +1484,15 @@
                           },
                           "response": [
                             {
-                              "id": "ff417ac2-9dfe-4d0d-b895-9ce5578fb6bd",
-                              "name": "Note updated successfully",
+                              "id": "b2715f55-43f9-48d7-821c-dc3b4c14d1d5",
+                              "name": "Blog updated successfully",
                               "originalRequest": {
                                 "url": {
                                   "path": [
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2439,16 +1503,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to update"
+                                      "description": "(Required) ID of the blog to update"
                                     }
                                   ]
                                 },
@@ -2469,7 +1533,7 @@
                                 "method": "PUT",
                                 "body": {
                                   "mode": "raw",
-                                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                                   "options": {
                                     "raw": {
                                       "language": "json"
@@ -2485,12 +1549,12 @@
                                   "value": "application/json"
                                 }
                               ],
-                              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b02\",\n    \"title\": \"Meeting Agenda\",\n    \"content\": \"Discuss project milestones and deadlines.\",\n    \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"tags\": [\n      \"meeting\",\n      \"project\"\n    ],\n    \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n  }\n}",
+                              "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": 201,\n    \"title\": \"Meeting Agenda\",\n    \"content\": \"Discuss project milestones and deadlines.\",\n    \"notebookId\": 101,\n    \"createdAt\": \"2021-06-21T10:10:00.000Z\"\n  }\n}",
                               "cookie": [],
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "0806efb0-8794-47c6-ab92-7a2fa75a1410",
+                              "id": "ab6dd898-ded9-4506-a88e-2a245b1883a7",
                               "name": "Bad request",
                               "originalRequest": {
                                 "url": {
@@ -2498,7 +1562,7 @@
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2509,16 +1573,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to update"
+                                      "description": "(Required) ID of the blog to update"
                                     }
                                   ]
                                 },
@@ -2535,7 +1599,7 @@
                                 "method": "PUT",
                                 "body": {
                                   "mode": "raw",
-                                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                                   "options": {
                                     "raw": {
                                       "language": "json"
@@ -2556,15 +1620,15 @@
                               "_postman_previewlanguage": "text"
                             },
                             {
-                              "id": "203f1221-875e-4a7f-9a7b-f2a6b7385943",
-                              "name": "Not authorized",
+                              "id": "54228940-5015-4f00-a838-ce54f74b1b4d",
+                              "name": "Not authorized (if ownership check fails)",
                               "originalRequest": {
                                 "url": {
                                   "path": [
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2575,16 +1639,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to update"
+                                      "description": "(Required) ID of the blog to update"
                                     }
                                   ]
                                 },
@@ -2601,7 +1665,7 @@
                                 "method": "PUT",
                                 "body": {
                                   "mode": "raw",
-                                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                                   "options": {
                                     "raw": {
                                       "language": "json"
@@ -2622,15 +1686,15 @@
                               "_postman_previewlanguage": "text"
                             },
                             {
-                              "id": "1ec7d84a-14cc-440e-b8b5-b8f3c3898c27",
-                              "name": "Notebook or Note not found",
+                              "id": "b16427fd-222b-4bf2-b6e0-43253ab20b08",
+                              "name": "Notebook or Blog not found",
                               "originalRequest": {
                                 "url": {
                                   "path": [
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2641,16 +1705,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to update"
+                                      "description": "(Required) ID of the blog to update"
                                     }
                                   ]
                                 },
@@ -2667,7 +1731,7 @@
                                 "method": "PUT",
                                 "body": {
                                   "mode": "raw",
-                                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
                                   "options": {
                                     "raw": {
                                       "language": "json"
@@ -2694,17 +1758,17 @@
                           }
                         },
                         {
-                          "id": "3fb1abdc-d17c-437c-b7eb-f9954d7d20c3",
-                          "name": "Delete a note by ID for a specific notebook",
+                          "id": "309f5dd6-1619-47a9-ba81-8462a936662f",
+                          "name": "Delete a blog by ID for a specific notebook",
                           "request": {
-                            "name": "Delete a note by ID for a specific notebook",
+                            "name": "Delete a blog by ID for a specific notebook",
                             "description": {},
                             "url": {
                               "path": [
                                 "api",
                                 "notebooks",
                                 ":notebookId",
-                                "notes",
+                                "blogs",
                                 ":id"
                               ],
                               "host": [
@@ -2718,16 +1782,16 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 },
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "id",
-                                  "description": "(Required) ID of the note to delete"
+                                  "description": "(Required) ID of the blog to delete"
                                 }
                               ],
                               "protocol": "http",
@@ -2752,15 +1816,15 @@
                           },
                           "response": [
                             {
-                              "id": "75c348d9-03b1-4c35-8f28-501cba8853c8",
-                              "name": "Note deleted successfully",
+                              "id": "73816314-efa7-463d-a427-c75555b55dbf",
+                              "name": "Blog deleted successfully",
                               "originalRequest": {
                                 "url": {
                                   "path": [
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2771,16 +1835,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to delete"
+                                      "description": "(Required) ID of the blog to delete"
                                     }
                                   ]
                                 },
@@ -2814,15 +1878,15 @@
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "b0e1494c-e6df-4de5-aad2-7a5bd1b8c673",
-                              "name": "Not authorized",
+                              "id": "f9bf30ce-7ad3-4d09-bc14-f2cf19bbeeb0",
+                              "name": "Not authorized (if ownership check fails)",
                               "originalRequest": {
                                 "url": {
                                   "path": [
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2833,16 +1897,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to delete"
+                                      "description": "(Required) ID of the blog to delete"
                                     }
                                   ]
                                 },
@@ -2872,15 +1936,15 @@
                               "_postman_previewlanguage": "text"
                             },
                             {
-                              "id": "a8a99576-b7ec-43ad-9296-2c922022dc9b",
-                              "name": "Notebook or Note not found",
+                              "id": "e3cab65a-6e3d-408e-a556-6f39f3922256",
+                              "name": "Notebook or Blog not found",
                               "originalRequest": {
                                 "url": {
                                   "path": [
                                     "api",
                                     "notebooks",
                                     ":notebookId",
-                                    "notes",
+                                    "blogs",
                                     ":id"
                                   ],
                                   "host": [
@@ -2891,16 +1955,16 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
-                                      "description": "(Required) ID of the note to delete"
+                                      "description": "(Required) ID of the blog to delete"
                                     }
                                   ]
                                 },
@@ -2942,11 +2006,11 @@
                   "event": []
                 },
                 {
-                  "id": "6595e16d-2883-4076-883d-a2c9c9a1221f",
+                  "id": "7e8e1e1f-2cef-4ffd-a2ff-b10ab4335028",
                   "name": "tasks",
                   "item": [
                     {
-                      "id": "64ca3eb9-9403-4b1d-bf7e-71857c5274d4",
+                      "id": "f2d92107-e25f-4e07-8d0b-4a6906bc32cf",
                       "name": "Get all tasks for a specific notebook",
                       "request": {
                         "name": "Get all tasks for a specific notebook",
@@ -2969,7 +2033,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "notebookId",
                               "description": "(Required) ID of the notebook"
                             }
@@ -2996,7 +2060,7 @@
                       },
                       "response": [
                         {
-                          "id": "4bfc2272-a22b-47c3-aa25-46fc52051e8b",
+                          "id": "cd0b85ba-04be-4b39-84a8-1cd76159360c",
                           "name": "A list of tasks",
                           "originalRequest": {
                             "url": {
@@ -3014,7 +2078,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -3045,12 +2109,12 @@
                               "value": "application/json"
                             }
                           ],
-                          "body": "{\n  \"success\": false,\n  \"count\": 3,\n  \"data\": [\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b03\",\n      \"description\": \"Finish project report\",\n      \"status\": \"OPEN\",\n      \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n      \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n    },\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b03\",\n      \"description\": \"Finish project report\",\n      \"status\": \"OPEN\",\n      \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n      \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n    }\n  ]\n}",
+                          "body": "{\n  \"success\": true,\n  \"count\": 3185,\n  \"data\": [\n    {\n      \"_id\": 301,\n      \"description\": \"Finish project report\",\n      \"status\": \"OPEN\",\n      \"notebookId\": 101,\n      \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n    },\n    {\n      \"_id\": 301,\n      \"description\": \"Finish project report\",\n      \"status\": \"OPEN\",\n      \"notebookId\": 101,\n      \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n    }\n  ]\n}",
                           "cookie": [],
                           "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "b7b0d21f-f015-4e32-8e8b-b11f257cbcdc",
+                          "id": "a5eac93e-0692-401c-8c7f-da37015c78a1",
                           "name": "Not authorized",
                           "originalRequest": {
                             "url": {
@@ -3068,7 +2132,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -3100,7 +2164,7 @@
                           "_postman_previewlanguage": "text"
                         },
                         {
-                          "id": "240c6b12-75e1-486f-a4d8-0b8b1a68f503",
+                          "id": "87ea5255-abf1-46b8-a0d7-90a8106c9cad",
                           "name": "Notebook not found",
                           "originalRequest": {
                             "url": {
@@ -3118,7 +2182,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -3156,7 +2220,7 @@
                       }
                     },
                     {
-                      "id": "3a3ffce8-a4da-4beb-bd6c-1f1fcdb59bd2",
+                      "id": "80432e66-35e1-411d-903a-69a4c2b6d208",
                       "name": "Create a new task in a specific notebook",
                       "request": {
                         "name": "Create a new task in a specific notebook",
@@ -3179,7 +2243,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "notebookId",
                               "description": "(Required) ID of the notebook"
                             }
@@ -3219,7 +2283,7 @@
                       },
                       "response": [
                         {
-                          "id": "8397d5a9-4f4d-47b0-822e-6448a581a978",
+                          "id": "e3ba09ce-963d-4f2b-8973-734a32ba92de",
                           "name": "Task created",
                           "originalRequest": {
                             "url": {
@@ -3237,7 +2301,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -3276,12 +2340,12 @@
                               "value": "application/json"
                             }
                           ],
-                          "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b03\",\n    \"description\": \"Finish project report\",\n    \"status\": \"OPEN\",\n    \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n  }\n}",
+                          "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": 301,\n    \"description\": \"Finish project report\",\n    \"status\": \"OPEN\",\n    \"notebookId\": 101,\n    \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n  }\n}",
                           "cookie": [],
                           "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "586dccaa-b64f-4cd3-9e3d-540c8bb65f49",
+                          "id": "ff1c5718-22c5-45cc-a0f5-5f22b8cddd62",
                           "name": "Bad request",
                           "originalRequest": {
                             "url": {
@@ -3299,7 +2363,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -3339,7 +2403,7 @@
                           "_postman_previewlanguage": "text"
                         },
                         {
-                          "id": "ddc5ccb7-ac4f-48e2-a2a5-1ab0ccbe9f1e",
+                          "id": "933fb533-934d-4a96-9c41-4a5957b1d802",
                           "name": "Not authorized",
                           "originalRequest": {
                             "url": {
@@ -3357,7 +2421,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -3397,7 +2461,7 @@
                           "_postman_previewlanguage": "text"
                         },
                         {
-                          "id": "eb509781-0ac1-43d5-b610-89a77028c34e",
+                          "id": "295b05ef-ae2b-4d45-9628-2c2a5afe05db",
                           "name": "Notebook not found",
                           "originalRequest": {
                             "url": {
@@ -3415,7 +2479,7 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 }
@@ -3461,11 +2525,11 @@
                       }
                     },
                     {
-                      "id": "8ca39cd6-95dd-4c38-b15c-8f43f17ba229",
+                      "id": "377edec8-88bc-4a86-9ac1-db4becd1a2da",
                       "name": "{id}",
                       "item": [
                         {
-                          "id": "1fa2f7b5-ba7d-4847-bf99-bd243fba24c9",
+                          "id": "82400869-e9d0-4464-9c5a-9b84a29ae9b7",
                           "name": "Get single task by ID for a specific notebook",
                           "request": {
                             "name": "Get single task by ID for a specific notebook",
@@ -3489,14 +2553,14 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 },
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "id",
                                   "description": "(Required) ID of the task to retrieve"
                                 }
@@ -3523,7 +2587,7 @@
                           },
                           "response": [
                             {
-                              "id": "dc21cca0-f7a2-4ef2-a6f4-cbfa5ad403da",
+                              "id": "7e0254a8-5904-4ebe-acab-52e1b5af4e8a",
                               "name": "Successful response with the task data",
                               "originalRequest": {
                                 "url": {
@@ -3542,14 +2606,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to retrieve"
                                     }
@@ -3580,12 +2644,12 @@
                                   "value": "application/json"
                                 }
                               ],
-                              "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b03\",\n    \"description\": \"Finish project report\",\n    \"status\": \"OPEN\",\n    \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n  }\n}",
+                              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": 301,\n    \"description\": \"Finish project report\",\n    \"status\": \"OPEN\",\n    \"notebookId\": 101,\n    \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n  }\n}",
                               "cookie": [],
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "9d4e2aab-5c78-442c-a8d2-f51f9e78fb43",
+                              "id": "9d1a30a7-c80b-4ef2-a141-ed3c62cf3107",
                               "name": "Not authorized",
                               "originalRequest": {
                                 "url": {
@@ -3604,14 +2668,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to retrieve"
                                     }
@@ -3643,7 +2707,7 @@
                               "_postman_previewlanguage": "text"
                             },
                             {
-                              "id": "ec086f95-d9d7-4c81-a1b1-6ff34fcb2e41",
+                              "id": "af825411-0bef-4971-bf61-e286ff64f906",
                               "name": "Notebook or Task not found",
                               "originalRequest": {
                                 "url": {
@@ -3662,14 +2726,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to retrieve"
                                     }
@@ -3707,7 +2771,7 @@
                           }
                         },
                         {
-                          "id": "75d522db-abe0-4463-b360-e61138016d19",
+                          "id": "ef1a7a73-cf20-426e-ad46-1191bd76bd5f",
                           "name": "Update a task by ID for a specific notebook",
                           "request": {
                             "name": "Update a task by ID for a specific notebook",
@@ -3731,14 +2795,14 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 },
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "id",
                                   "description": "(Required) ID of the task to update"
                                 }
@@ -3778,7 +2842,7 @@
                           },
                           "response": [
                             {
-                              "id": "eb33f183-c4ae-4c2a-8554-babf2c9d8b5b",
+                              "id": "3f235b54-4653-41a7-a9bf-dc0b8b26c6d9",
                               "name": "Task updated successfully",
                               "originalRequest": {
                                 "url": {
@@ -3797,14 +2861,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to update"
                                     }
@@ -3843,12 +2907,12 @@
                                   "value": "application/json"
                                 }
                               ],
-                              "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b03\",\n    \"description\": \"Finish project report\",\n    \"status\": \"OPEN\",\n    \"notebookId\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n  }\n}",
+                              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": 301,\n    \"description\": \"Finish project report\",\n    \"status\": \"OPEN\",\n    \"notebookId\": 101,\n    \"createdAt\": \"2021-06-21T10:15:00.000Z\"\n  }\n}",
                               "cookie": [],
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "806a5f9b-af48-4554-b728-12f1efd2b184",
+                              "id": "93addd4f-9092-476c-af4b-4fbe2d421ad9",
                               "name": "Bad request",
                               "originalRequest": {
                                 "url": {
@@ -3867,14 +2931,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to update"
                                     }
@@ -3914,7 +2978,7 @@
                               "_postman_previewlanguage": "text"
                             },
                             {
-                              "id": "abb09cd0-5210-40e8-bf8b-d524edda5011",
+                              "id": "636242c3-14f3-4bcd-a99d-7af56d7d6dc1",
                               "name": "Not authorized",
                               "originalRequest": {
                                 "url": {
@@ -3933,14 +2997,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to update"
                                     }
@@ -3980,7 +3044,7 @@
                               "_postman_previewlanguage": "text"
                             },
                             {
-                              "id": "790afc7a-edb2-4bce-9597-dbaf4c1c415d",
+                              "id": "66fed805-f9d8-4a79-a42f-1b10e20a6b1f",
                               "name": "Notebook or Task not found",
                               "originalRequest": {
                                 "url": {
@@ -3999,14 +3063,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to update"
                                     }
@@ -4052,7 +3116,7 @@
                           }
                         },
                         {
-                          "id": "a3a988a2-ab83-4053-9ba0-c6ef11a2e3df",
+                          "id": "b5640e9c-66bb-43da-b5d5-af9d25d05ffc",
                           "name": "Delete a task by ID for a specific notebook",
                           "request": {
                             "name": "Delete a task by ID for a specific notebook",
@@ -4076,14 +3140,14 @@
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "notebookId",
                                   "description": "(Required) ID of the notebook"
                                 },
                                 {
                                   "disabled": false,
                                   "type": "any",
-                                  "value": "<string>",
+                                  "value": "<number>",
                                   "key": "id",
                                   "description": "(Required) ID of the task to delete"
                                 }
@@ -4110,7 +3174,7 @@
                           },
                           "response": [
                             {
-                              "id": "d9d2781a-918e-403e-82a7-ddd5f0029a88",
+                              "id": "12a8826e-02a8-4d97-9b0e-b718a3fbc815",
                               "name": "Task deleted successfully",
                               "originalRequest": {
                                 "url": {
@@ -4129,14 +3193,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to delete"
                                     }
@@ -4172,7 +3236,7 @@
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "b632822a-1df7-4539-9a75-262ec08612ce",
+                              "id": "2d5bfe61-7bcd-4bf2-897f-d834298e9cbc",
                               "name": "Not authorized",
                               "originalRequest": {
                                 "url": {
@@ -4191,14 +3255,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to delete"
                                     }
@@ -4230,7 +3294,7 @@
                               "_postman_previewlanguage": "text"
                             },
                             {
-                              "id": "cfa1ee24-d3c3-4b22-a58d-0c637978972a",
+                              "id": "596e79d4-8095-44c4-a717-90e03a3fdae2",
                               "name": "Not authorized to delete this task (e.g., if note does not exist)",
                               "originalRequest": {
                                 "url": {
@@ -4249,14 +3313,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to delete"
                                     }
@@ -4288,7 +3352,7 @@
                               "_postman_previewlanguage": "text"
                             },
                             {
-                              "id": "7b8b7241-3361-4084-bff7-26fd851761f4",
+                              "id": "49cc0297-9495-4f98-90d7-a1b6db5af78e",
                               "name": "Notebook or Task not found",
                               "originalRequest": {
                                 "url": {
@@ -4307,14 +3371,14 @@
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "notebookId",
                                       "description": "(Required) ID of the notebook"
                                     },
                                     {
                                       "disabled": false,
                                       "type": "any",
-                                      "value": "<string>",
+                                      "value": "<number>",
                                       "key": "id",
                                       "description": "(Required) ID of the task to delete"
                                     }
@@ -4361,11 +3425,11 @@
               "event": []
             },
             {
-              "id": "8f4ddabe-3acf-46c5-be9d-7f299c9761fb",
+              "id": "be0720ea-9a82-4ad3-958a-163dd82908be",
               "name": "{id}",
               "item": [
                 {
-                  "id": "fc9aeb0e-e624-42ee-adb6-14e5e5492bd1",
+                  "id": "8551c59b-4d20-4855-87d6-e5352ba5f517",
                   "name": "Get single notebook by ID",
                   "request": {
                     "name": "Get single notebook by ID",
@@ -4387,7 +3451,7 @@
                         {
                           "disabled": false,
                           "type": "any",
-                          "value": "<string>",
+                          "value": "<number>",
                           "key": "id",
                           "description": "(Required) ID of the notebook to retrieve"
                         }
@@ -4414,7 +3478,7 @@
                   },
                   "response": [
                     {
-                      "id": "222f9584-bbdf-42f7-aa1e-ed237154e115",
+                      "id": "c970ab4b-713c-438f-8f64-aff3da3e2335",
                       "name": "Successful response with the notebook data",
                       "originalRequest": {
                         "url": {
@@ -4431,7 +3495,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to retrieve"
                             }
@@ -4462,12 +3526,12 @@
                           "value": "application/json"
                         }
                       ],
-                      "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"name\": \"My First Notebook\",\n    \"owner\": \"60d0fe4f5e3e2a001c8a1b00\",\n    \"isArchived\": false,\n    \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n  }\n}",
+                      "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": 101,\n    \"name\": \"My First Notebook\",\n    \"owner\": 1,\n    \"isArchived\": false,\n    \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n  }\n}",
                       "cookie": [],
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "2fae77af-b140-43bc-bf19-7e1e5a8059ab",
+                      "id": "02ee5170-484d-46f0-86d7-b6fb3912c0ed",
                       "name": "Not authorized",
                       "originalRequest": {
                         "url": {
@@ -4484,7 +3548,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to retrieve"
                             }
@@ -4516,7 +3580,7 @@
                       "_postman_previewlanguage": "text"
                     },
                     {
-                      "id": "b74922ef-3296-42b6-91c2-c17bfc51bcb2",
+                      "id": "8ebb4a5b-c603-4510-9261-6f84f4fc6f6e",
                       "name": "Notebook not found",
                       "originalRequest": {
                         "url": {
@@ -4533,7 +3597,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to retrieve"
                             }
@@ -4571,7 +3635,7 @@
                   }
                 },
                 {
-                  "id": "2ca49754-8b59-498a-aa7a-9a614930bfd5",
+                  "id": "6eb391ab-4233-4958-b302-f62a27a1bb94",
                   "name": "Update a notebook by ID",
                   "request": {
                     "name": "Update a notebook by ID",
@@ -4593,7 +3657,7 @@
                         {
                           "disabled": false,
                           "type": "any",
-                          "value": "<string>",
+                          "value": "<number>",
                           "key": "id",
                           "description": "(Required) ID of the notebook to update"
                         }
@@ -4633,7 +3697,7 @@
                   },
                   "response": [
                     {
-                      "id": "b6ac6a50-94a1-4cd3-97ce-e94daa587ef6",
+                      "id": "22299bbc-67fb-454f-8826-0065c1d26458",
                       "name": "Notebook updated successfully",
                       "originalRequest": {
                         "url": {
@@ -4650,7 +3714,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to update"
                             }
@@ -4689,12 +3753,12 @@
                           "value": "application/json"
                         }
                       ],
-                      "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b01\",\n    \"name\": \"My First Notebook\",\n    \"owner\": \"60d0fe4f5e3e2a001c8a1b00\",\n    \"isArchived\": false,\n    \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n  }\n}",
+                      "body": "{\n  \"success\": false,\n  \"data\": {\n    \"_id\": 101,\n    \"name\": \"My First Notebook\",\n    \"owner\": 1,\n    \"isArchived\": false,\n    \"createdAt\": \"2021-06-21T10:05:00.000Z\"\n  }\n}",
                       "cookie": [],
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "5998e8b1-7907-4af1-b38b-1fad8c0c46c7",
+                      "id": "53435edb-38b9-4b7f-96e2-89af445deea5",
                       "name": "Bad request",
                       "originalRequest": {
                         "url": {
@@ -4711,7 +3775,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to update"
                             }
@@ -4751,7 +3815,7 @@
                       "_postman_previewlanguage": "text"
                     },
                     {
-                      "id": "d52d6104-c4f8-47bd-a5f2-46d200ac78ec",
+                      "id": "95f73f8b-7b6c-4e3a-96e2-c0f012400b28",
                       "name": "Not authorized",
                       "originalRequest": {
                         "url": {
@@ -4768,7 +3832,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to update"
                             }
@@ -4808,7 +3872,7 @@
                       "_postman_previewlanguage": "text"
                     },
                     {
-                      "id": "6e3aeebf-e967-4608-93b9-f4a1eaceaeae",
+                      "id": "1cfd68d1-fca1-4eea-aed6-8cd2802b34bf",
                       "name": "Notebook not found",
                       "originalRequest": {
                         "url": {
@@ -4825,7 +3889,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to update"
                             }
@@ -4871,7 +3935,7 @@
                   }
                 },
                 {
-                  "id": "ed163fcb-6346-4de4-90b7-e409fed64de9",
+                  "id": "1e864f0d-8022-4693-9cfe-410fee7eb54b",
                   "name": "Delete a notebook by ID",
                   "request": {
                     "name": "Delete a notebook by ID",
@@ -4893,7 +3957,7 @@
                         {
                           "disabled": false,
                           "type": "any",
-                          "value": "<string>",
+                          "value": "<number>",
                           "key": "id",
                           "description": "(Required) ID of the notebook to delete"
                         }
@@ -4920,7 +3984,7 @@
                   },
                   "response": [
                     {
-                      "id": "b23c3bd5-8363-4289-a30b-acfb64594c9a",
+                      "id": "1a076ba6-d23c-4a55-a8d4-9b95a75c2ffd",
                       "name": "Notebook deleted successfully",
                       "originalRequest": {
                         "url": {
@@ -4937,7 +4001,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to delete"
                             }
@@ -4973,7 +4037,7 @@
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "dbe2ab13-5e4d-4ef9-90de-a76fa9b67760",
+                      "id": "b18bcd01-76a0-41d8-909d-60867a6b6de9",
                       "name": "Not authorized",
                       "originalRequest": {
                         "url": {
@@ -4990,7 +4054,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to delete"
                             }
@@ -5022,7 +4086,7 @@
                       "_postman_previewlanguage": "text"
                     },
                     {
-                      "id": "49b8960b-5241-4e4b-ada8-dd46b3da95ba",
+                      "id": "14d79bea-05a7-4990-9167-f77d7e2a4626",
                       "name": "Not authorized to delete this notebook (e.g., if it has open tasks)",
                       "originalRequest": {
                         "url": {
@@ -5039,7 +4103,7 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to delete"
                             }
@@ -5071,7 +4135,7 @@
                       "_postman_previewlanguage": "text"
                     },
                     {
-                      "id": "8baec583-43f5-4ef9-930d-7d4b3ddb9a2e",
+                      "id": "35f402d2-f820-40b4-8c2f-6d59f7c35544",
                       "name": "Notebook not found",
                       "originalRequest": {
                         "url": {
@@ -5088,1315 +4152,9 @@
                             {
                               "disabled": false,
                               "type": "any",
-                              "value": "<string>",
+                              "value": "<number>",
                               "key": "id",
                               "description": "(Required) ID of the notebook to delete"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "DELETE",
-                        "body": {}
-                      },
-                      "status": "Not Found",
-                      "code": 404,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    }
-                  ],
-                  "event": [],
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  }
-                }
-              ],
-              "event": []
-            }
-          ],
-          "event": []
-        },
-        {
-          "id": "ae07f0aa-8a7f-4426-8b80-10269cbbac62",
-          "name": "users",
-          "item": [
-            {
-              "id": "e61bec59-03c6-4cf1-bcc4-5d7527633ff5",
-              "name": "Get all users",
-              "request": {
-                "name": "Get all users",
-                "description": {},
-                "url": {
-                  "path": [
-                    "api",
-                    "users"
-                  ],
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "query": [],
-                  "variable": [],
-                  "protocol": "http",
-                  "port": "3000"
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "auth": {
-                  "type": "bearer",
-                  "bearer": [
-                    {
-                      "key": "token",
-                      "value": "{{bearerToken}}"
-                    }
-                  ]
-                }
-              },
-              "response": [
-                {
-                  "id": "efa8f5a3-a46e-41d4-8ca3-1c64cd33da5a",
-                  "name": "A list of users",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "users"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "OK",
-                  "code": 200,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "application/json"
-                    }
-                  ],
-                  "body": "{\n  \"success\": false,\n  \"count\": 5819,\n  \"data\": [\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b00\",\n      \"email\": \"user@example.com\",\n      \"role\": \"USER\",\n      \"isActive\": true,\n      \"createdAt\": \"2021-06-21T10:00:00.000Z\"\n    },\n    {\n      \"_id\": \"60d0fe4f5e3e2a001c8a1b00\",\n      \"email\": \"user@example.com\",\n      \"role\": \"USER\",\n      \"isActive\": true,\n      \"createdAt\": \"2021-06-21T10:00:00.000Z\"\n    }\n  ]\n}",
-                  "cookie": [],
-                  "_postman_previewlanguage": "json"
-                },
-                {
-                  "id": "290371ba-b1f7-4b0a-ae37-eb7e106f0afa",
-                  "name": "Not authorized",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "users"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "Unauthorized",
-                  "code": 401,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                },
-                {
-                  "id": "e0f4b96e-50a9-4e2c-b9e7-401e869bc563",
-                  "name": "Not permitted (Admins only)",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "users"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "GET",
-                    "body": {}
-                  },
-                  "status": "Forbidden",
-                  "code": 403,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                }
-              ],
-              "event": [],
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              }
-            },
-            {
-              "id": "c74d76d5-be94-48fb-b33a-d1fd8d924b7c",
-              "name": "Create new user",
-              "request": {
-                "name": "Create new user",
-                "description": {},
-                "url": {
-                  "path": [
-                    "api",
-                    "users"
-                  ],
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "query": [],
-                  "variable": [],
-                  "protocol": "http",
-                  "port": "3000"
-                },
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "auth": {
-                  "type": "bearer",
-                  "bearer": [
-                    {
-                      "key": "token",
-                      "value": "{{bearerToken}}"
-                    }
-                  ]
-                },
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "response": [
-                {
-                  "id": "51b6f603-e64d-4fdf-8577-4ab10d6747d6",
-                  "name": "User created",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "users"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "POST",
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "status": "Created",
-                  "code": 201,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "application/json"
-                    }
-                  ],
-                  "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b00\",\n    \"email\": \"user@example.com\",\n    \"role\": \"USER\",\n    \"isActive\": true,\n    \"createdAt\": \"2021-06-21T10:00:00.000Z\"\n  }\n}",
-                  "cookie": [],
-                  "_postman_previewlanguage": "json"
-                },
-                {
-                  "id": "d1ef97f0-bf1c-4478-9d31-cd4bfb0b337b",
-                  "name": "Bad request",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "users"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "POST",
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "status": "Bad Request",
-                  "code": 400,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                },
-                {
-                  "id": "1572092c-42b9-4f37-9049-d758b1add13a",
-                  "name": "Not authorized",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "users"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "POST",
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "status": "Unauthorized",
-                  "code": 401,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                },
-                {
-                  "id": "e16fcbc7-834d-48fe-ad16-61cb2a949f38",
-                  "name": "Not permitted (Admins only)",
-                  "originalRequest": {
-                    "url": {
-                      "path": [
-                        "api",
-                        "users"
-                      ],
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "query": [],
-                      "variable": []
-                    },
-                    "header": [
-                      {
-                        "description": {
-                          "content": "Added as a part of security scheme: bearer",
-                          "type": "text/plain"
-                        },
-                        "key": "Authorization",
-                        "value": "Bearer <token>"
-                      }
-                    ],
-                    "method": "POST",
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "status": "Forbidden",
-                  "code": 403,
-                  "header": [
-                    {
-                      "key": "Content-Type",
-                      "value": "text/plain"
-                    }
-                  ],
-                  "body": "",
-                  "cookie": [],
-                  "_postman_previewlanguage": "text"
-                }
-              ],
-              "event": [],
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              }
-            },
-            {
-              "id": "760e1f6d-77ee-40f4-bbe1-02a976c06345",
-              "name": "{id}",
-              "item": [
-                {
-                  "id": "2f795bef-ad6d-4048-b549-ef92b1e2ce69",
-                  "name": "Get single user by ID",
-                  "request": {
-                    "name": "Get single user by ID",
-                    "description": {},
-                    "url": {
-                      "path": [
-                        "api",
-                        "users",
-                        ":id"
-                      ],
-                      "host": [
-                        "127",
-                        "0",
-                        "0",
-                        "1"
-                      ],
-                      "query": [],
-                      "variable": [
-                        {
-                          "disabled": false,
-                          "type": "any",
-                          "value": "<string>",
-                          "key": "id",
-                          "description": "(Required) ID of the user to retrieve"
-                        }
-                      ],
-                      "protocol": "http",
-                      "port": "3000"
-                    },
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "GET",
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": [
-                        {
-                          "key": "token",
-                          "value": "{{bearerToken}}"
-                        }
-                      ]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "2b3a3b26-ebd6-4954-944b-f7cee07f975a",
-                      "name": "Successful response with the user data",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to retrieve"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          },
-                          {
-                            "key": "Accept",
-                            "value": "application/json"
-                          }
-                        ],
-                        "method": "GET",
-                        "body": {}
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        }
-                      ],
-                      "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b00\",\n    \"email\": \"user@example.com\",\n    \"role\": \"USER\",\n    \"isActive\": true,\n    \"createdAt\": \"2021-06-21T10:00:00.000Z\"\n  }\n}",
-                      "cookie": [],
-                      "_postman_previewlanguage": "json"
-                    },
-                    {
-                      "id": "61fb57f8-6c7f-410c-ab51-e08483e2956f",
-                      "name": "Not authorized",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to retrieve"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "GET",
-                        "body": {}
-                      },
-                      "status": "Unauthorized",
-                      "code": 401,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    },
-                    {
-                      "id": "edf2ba21-e08b-4a0d-9b89-5ba3809e5fdf",
-                      "name": "Not permitted (Admins only)",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to retrieve"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "GET",
-                        "body": {}
-                      },
-                      "status": "Forbidden",
-                      "code": 403,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    },
-                    {
-                      "id": "eb3b6e3e-9a03-43b8-9367-4e9e9caac12b",
-                      "name": "User not found",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to retrieve"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "GET",
-                        "body": {}
-                      },
-                      "status": "Not Found",
-                      "code": 404,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    }
-                  ],
-                  "event": [],
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  }
-                },
-                {
-                  "id": "1f4d449b-c55e-4c58-bab8-1c47fbfca3e0",
-                  "name": "Update a user by ID",
-                  "request": {
-                    "name": "Update a user by ID",
-                    "description": {},
-                    "url": {
-                      "path": [
-                        "api",
-                        "users",
-                        ":id"
-                      ],
-                      "host": [
-                        "127",
-                        "0",
-                        "0",
-                        "1"
-                      ],
-                      "query": [],
-                      "variable": [
-                        {
-                          "disabled": false,
-                          "type": "any",
-                          "value": "<string>",
-                          "key": "id",
-                          "description": "(Required) ID of the user to update"
-                        }
-                      ],
-                      "protocol": "http",
-                      "port": "3000"
-                    },
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "PUT",
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": [
-                        {
-                          "key": "token",
-                          "value": "{{bearerToken}}"
-                        }
-                      ]
-                    },
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"isActive\": \"<boolean>\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "9099db8b-24a7-415b-9a94-88e0b7060806",
-                      "name": "User updated successfully",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to update"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          },
-                          {
-                            "key": "Accept",
-                            "value": "application/json"
-                          }
-                        ],
-                        "method": "PUT",
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n  \"email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"isActive\": \"<boolean>\"\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        }
-                      ],
-                      "body": "{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"60d0fe4f5e3e2a001c8a1b00\",\n    \"email\": \"user@example.com\",\n    \"role\": \"USER\",\n    \"isActive\": true,\n    \"createdAt\": \"2021-06-21T10:00:00.000Z\"\n  }\n}",
-                      "cookie": [],
-                      "_postman_previewlanguage": "json"
-                    },
-                    {
-                      "id": "7a947fdc-8173-4f2a-86d4-b88ba7a4387c",
-                      "name": "Bad request",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to update"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "PUT",
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n  \"email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"isActive\": \"<boolean>\"\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        }
-                      },
-                      "status": "Bad Request",
-                      "code": 400,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    },
-                    {
-                      "id": "1cbbfc07-6847-4392-a2f0-c63b1906fafb",
-                      "name": "Not authorized",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to update"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "PUT",
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n  \"email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"isActive\": \"<boolean>\"\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        }
-                      },
-                      "status": "Unauthorized",
-                      "code": 401,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    },
-                    {
-                      "id": "74e5f9b7-ba22-4ce2-b3d7-6d6fcb70a09a",
-                      "name": "Not permitted (Admins only)",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to update"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "PUT",
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n  \"email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"isActive\": \"<boolean>\"\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        }
-                      },
-                      "status": "Forbidden",
-                      "code": 403,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    },
-                    {
-                      "id": "68fb52c0-83d0-4b79-9fd9-be071e7d31dc",
-                      "name": "User not found",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to update"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "PUT",
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n  \"email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"isActive\": \"<boolean>\"\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        }
-                      },
-                      "status": "Not Found",
-                      "code": 404,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    }
-                  ],
-                  "event": [],
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  }
-                },
-                {
-                  "id": "b3740624-3ab7-4a3b-949e-46acb63ce1c4",
-                  "name": "Delete a user by ID",
-                  "request": {
-                    "name": "Delete a user by ID",
-                    "description": {},
-                    "url": {
-                      "path": [
-                        "api",
-                        "users",
-                        ":id"
-                      ],
-                      "host": [
-                        "127",
-                        "0",
-                        "0",
-                        "1"
-                      ],
-                      "query": [],
-                      "variable": [
-                        {
-                          "disabled": false,
-                          "type": "any",
-                          "value": "<string>",
-                          "key": "id",
-                          "description": "(Required) ID of the user to delete"
-                        }
-                      ],
-                      "protocol": "http",
-                      "port": "3000"
-                    },
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "DELETE",
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": [
-                        {
-                          "key": "token",
-                          "value": "{{bearerToken}}"
-                        }
-                      ]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "fcd76aed-9757-4f99-b909-79e5a6e46dbd",
-                      "name": "User deleted successfully",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to delete"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          },
-                          {
-                            "key": "Accept",
-                            "value": "application/json"
-                          }
-                        ],
-                        "method": "DELETE",
-                        "body": {}
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        }
-                      ],
-                      "body": "{\n  \"success\": false,\n  \"data\": {}\n}",
-                      "cookie": [],
-                      "_postman_previewlanguage": "json"
-                    },
-                    {
-                      "id": "0a3c0da4-72ef-4beb-a04c-5fce769193b4",
-                      "name": "Not authorized",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to delete"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "DELETE",
-                        "body": {}
-                      },
-                      "status": "Unauthorized",
-                      "code": 401,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    },
-                    {
-                      "id": "f77634b7-38ce-41f1-983a-b11accd518a7",
-                      "name": "Not permitted (Admins only)",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to delete"
-                            }
-                          ]
-                        },
-                        "header": [
-                          {
-                            "description": {
-                              "content": "Added as a part of security scheme: bearer",
-                              "type": "text/plain"
-                            },
-                            "key": "Authorization",
-                            "value": "Bearer <token>"
-                          }
-                        ],
-                        "method": "DELETE",
-                        "body": {}
-                      },
-                      "status": "Forbidden",
-                      "code": 403,
-                      "header": [
-                        {
-                          "key": "Content-Type",
-                          "value": "text/plain"
-                        }
-                      ],
-                      "body": "",
-                      "cookie": [],
-                      "_postman_previewlanguage": "text"
-                    },
-                    {
-                      "id": "0e870850-176a-4277-b0d2-8077416e8b00",
-                      "name": "User not found",
-                      "originalRequest": {
-                        "url": {
-                          "path": [
-                            "api",
-                            "users",
-                            ":id"
-                          ],
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "query": [],
-                          "variable": [
-                            {
-                              "disabled": false,
-                              "type": "any",
-                              "value": "<string>",
-                              "key": "id",
-                              "description": "(Required) ID of the user to delete"
                             }
                           ]
                         },
@@ -6459,7 +4217,7 @@
     ]
   },
   "info": {
-    "_postman_id": "d0ae85bb-2aeb-4a8e-ad29-246133ccb41e",
+    "_postman_id": "773be16d-7cb7-4440-80a2-be011534c648",
     "name": "Collaborative Notes & Tasks API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

@@ -32,7 +32,7 @@ router.use(protect);
  *       - in: path
  *         name: notebookId
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the notebook
  *     responses:
@@ -64,7 +64,7 @@ router.use(protect);
  *       - in: path
  *         name: notebookId
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the notebook
  *     requestBody:
@@ -118,13 +118,13 @@ router
  *       - in: path
  *         name: notebookId
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the notebook
  *       - in: path
  *         name: id
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the task to retrieve
  *     responses:
@@ -152,13 +152,13 @@ router
  *       - in: path
  *         name: notebookId
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the notebook
  *       - in: path
  *         name: id
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the task to update
  *     requestBody:
@@ -200,13 +200,13 @@ router
  *       - in: path
  *         name: notebookId
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the notebook
  *       - in: path
  *         name: id
  *         schema:
- *           type: string
+ *           type: number
  *         required: true
  *         description: ID of the task to delete
  *     responses:

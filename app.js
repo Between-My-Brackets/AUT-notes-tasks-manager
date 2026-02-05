@@ -35,12 +35,8 @@ app.get('/health', (req, res) => {
 
 // Routes
 app.use('/api/auth', require('./routes/auth.routes'));
-app.use('/api/users', require('./routes/user.routes'));
 app.use('/api/notebooks', require('./routes/notebook.routes'));
-app.use('/api/notes', require('./routes/note.routes'));
 app.use('/api/tasks', require('./routes/task.routes'));
-app.use('/api/audit-logs', require('./routes/audit.routes')); // Admin only
-app.use('/api/audits', require('./routes/audit.routes')); // Alias
 app.use(require('./middleware/error'));
 
 module.exports = app;

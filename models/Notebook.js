@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const Counter = require('./Counter');
 
 const NotebookSchema = new mongoose.Schema({
+    _id: { type: Number },
     name: {
         type: String,
         required: [true, 'Please add a notebook name'],
@@ -8,7 +10,7 @@ const NotebookSchema = new mongoose.Schema({
         maxlength: [50, 'Name can not be more than 50 characters']
     },
     owner: {
-        type: mongoose.Schema.ObjectId,
+        type: Number,
         ref: 'User',
         required: true
     },
@@ -20,6 +22,13 @@ const NotebookSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+}, { _id: false });
+
+NotebookSchema.pre('save', async function(next) {
+    if (this.isNew) {
+        this._id = await Counter.getNextSequence('notebookId');
+    }
+    next();
 });
 
 // Cascade delete notes and tasks when a notebook is deleted - Optional feature, avoiding for now to keep things simple or manual

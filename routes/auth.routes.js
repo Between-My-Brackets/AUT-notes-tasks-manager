@@ -37,9 +37,6 @@ const loginSchema = Joi.object({
  *                 type: string
  *               password:
  *                 type: string
- *               role:
- *                 type: string
- *                 enum: [USER, ADMIN]
  *     responses:
  *       201:
  *         description: User registered successfully

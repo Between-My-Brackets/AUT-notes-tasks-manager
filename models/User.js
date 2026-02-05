@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const Counter = require('./Counter');
 
 const UserSchema = new mongoose.Schema({
+    _id: { type: Number },
     email: {
         type: String,
         required: [true, 'Please add an email'],
@@ -18,11 +20,6 @@ const UserSchema = new mongoose.Schema({
         minlength: 6,
         select: false // Don't return password by default
     },
-    role: {
-        type: String,
-        enum: ['USER', 'ADMIN'],
-        default: 'USER'
-    },
     isActive: {
         type: Boolean,
         default: true
@@ -31,20 +28,24 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-});
+}, { _id: false }); // Disable default _id generation
 
-// Encrypt password using bcrypt
 UserSchema.pre('save', async function(next) {
-    if (!this.isModified('password')) {
-        next();
+    if (this.isNew) {
+        this._id = await Counter.getNextSequence('userId');
     }
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
+
+    if (this.isModified('password')) {
+        const salt = await bcrypt.genSalt(10);
+        this.password = await bcrypt.hash(this.password, salt);
+    }
+    
+    next();
 });
 
 // Sign JWT and return
 UserSchema.methods.getSignedJwtToken = function() {
-    return jwt.sign({ id: this._id, role: this.role }, process.env.JWT_SECRET, {
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRE
     });
 };

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const Counter = require('./Counter');
 
 const TaskSchema = new mongoose.Schema({
+    _id: { type: Number },
     description: {
         type: String,
         required: [true, 'Please add a description'],
@@ -12,7 +14,7 @@ const TaskSchema = new mongoose.Schema({
         default: 'OPEN'
     },
     notebookId: {
-        type: mongoose.Schema.ObjectId,
+        type: Number,
         ref: 'Notebook',
         required: true
     },
@@ -20,6 +22,13 @@ const TaskSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+}, { _id: false });
+
+TaskSchema.pre('save', async function(next) {
+    if (this.isNew) {
+        this._id = await Counter.getNextSequence('taskId');
+    }
+    next();
 });
 
 module.exports = mongoose.model('Task', TaskSchema);
