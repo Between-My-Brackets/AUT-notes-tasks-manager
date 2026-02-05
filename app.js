@@ -18,9 +18,9 @@ app.use(mongoSanitize());
 app.use(morgan('dev'));
 
 // Apply global rate limiting conditionally
-if (process.env.DISABLE_RATE_LIMIT !== 'true') {
-    app.use(limiter);
-}
+// if (process.env.DISABLE_RATE_LIMIT !== 'true') {
+//     app.use(limiter);
+// }
 
 // Swagger Docs
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
